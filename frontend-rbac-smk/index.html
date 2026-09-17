@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Akses Akademik RBAC - SMK RPL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- KOTAK LOGIN -->
+<div id="kotak-login" class="kotak">
+<h2>🔒 Login Sistem RBAC</h2>
+<form id="form-login">
+<div class="form-grup">
+<label>Pilih Role Pengujian:</label>
+<select id="pilih-role">
+<option value="admin@sekolah.sch.id">Admin (admin@sekolah.sch.id)</option>
+<option value="guru@sekolah.sch.id">Guru (guru@sekolah.sch.id)</option>
+<option value="siswa@sekolah.sch.id">Siswa (siswa@sekolah.sch.id)</option>
+</select>
+</div>
+<div class="form-grup">
+<label>Password:</label>
+<input type="password" id="password" value="password123" required>
+</div>
+<button type="submit" class="btn biru">Login Ke Sistem</button>
+</form>
+<p id="pesan-error" class="error"></p>
+</div>
+<!-- KOTAK DASHBOARD -->
+<div id="kotak-dashboard" class="kotak sembunyi">
+<div class="flex-header">
+<div>
+<h2>🎓 Dashboard Akademik</h2>
+<p>Login sebagai: <strong id="label-user">-</strong> | Role: <span id="badge-role"
+class="badge">-</span></p>
+</div>
+<button id="btn-logout" class="btn merah">Logout</button>
+</div>
+<hr style="margin: 15px 0;">
+<!-- FORM TAMBAH NILAI (HANYA DITAMPILKAN UNTUK ADMIN/GURU) -->
+<div id="area-tambah-nilai" class="sembunyi" style="background: #eef6ff; padding: 15px; border-radius: 6px;
+margin-bottom: 20px;">
+<h3>➕ Form Input Nilai (Khusus Admin & Guru)</h3>
+<form id="form-nilai" style="display: flex; gap: 10px; margin-top: 10px;">
+<input type="number" id="input-siswa-id" placeholder="ID Siswa (Contoh: 3)" required style="width:
+120px;">
+<input type="text" id="input-mapel" placeholder="Mata Pelajaran" required>
+<input type="number" id="input-nilai" placeholder="Nilai (0-100)" required style="width: 100px;">
+<button type="submit" class="btn hijau">Simpan Nilai</button>
+</form>
+</div>
+<!-- TABEL DATA NILAI -->
+<h3>📋 Daftar Nilai Akademik</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>ID Siswa</th>
+<th>Mata Pelajaran</th>
+<th>Nilai</th>
+<th>Aksi (Khusus Admin)</th>
+</tr>
+</thead>
+<tbody id="tabel-data">
+<!-- Data Otomatis Diisi via JavaScript -->
+</tbody>
+</table>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
