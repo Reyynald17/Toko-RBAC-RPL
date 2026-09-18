@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class GradeController extends Controller
 {
+    use AuthorizesRequests;
     public function index(Request $request)
     {
         $user = $request->user();
